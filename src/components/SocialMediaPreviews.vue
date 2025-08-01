@@ -2,13 +2,13 @@
   <div class="social-previews">
     <div class="max-w-7xl mx-auto">
       <!-- Error Message -->
-      <div v-if="error" class="mb-12 p-6 bg-red-50 border border-red-200 rounded-2xl">
-        <div class="flex items-start gap-4">
+      <div v-if="error" class="mb-16 p-8 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200/60 rounded-3xl shadow-lg">
+        <div class="flex items-start gap-5">
           <div
-            class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center flex-shrink-0"
+            class="w-16 h-16 bg-gradient-to-br from-red-100 to-pink-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg"
           >
             <svg
-              class="w-6 h-6 text-red-600"
+              class="w-8 h-8 text-red-600"
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -22,10 +22,10 @@
             </svg>
           </div>
           <div>
-            <h3 class="text-lg font-semibold text-red-900 mb-1">Processing Error</h3>
-            <p class="text-red-700">{{ error }}</p>
+            <h3 class="text-xl font-bold text-red-900 mb-2">Processing Error</h3>
+            <p class="text-red-700 text-base font-medium">{{ error }}</p>
             <button
-              class="mt-3 px-4 py-2 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors"
+              class="mt-4 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
             >
               Try Again
             </button>
@@ -34,20 +34,20 @@
       </div>
 
       <!-- Header Section -->
-      <div v-if="images.length" class="text-center mb-12">
+      <div v-if="images.length" class="text-center mb-16">
         <div
-          class="inline-flex items-center gap-2 mb-4 px-4 py-2 bg-violet-100 text-violet-700 rounded-full text-sm font-semibold"
+          class="inline-flex items-center gap-2 mb-6 px-5 py-3 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 rounded-full text-sm font-semibold border border-violet-200/50 shadow-sm"
         >
           <span
-            class="w-6 h-6 bg-violet-600 text-white rounded-full flex items-center justify-center text-xs font-bold"
+            class="w-7 h-7 bg-gradient-to-br from-violet-600 to-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg"
             >2</span
           >
           Download Results
         </div>
 
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Your Cropped Images</h2>
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Your Cropped Images</h2>
 
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
           {{ images.length }} perfectly cropped images ready for download. Each optimized for its
           specific platform.
         </p>
@@ -56,15 +56,15 @@
         <button
           @click="downloadAll"
           :disabled="downloadingAll"
-          class="inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg hover:scale-105"
         >
           <div
             v-if="downloadingAll"
-            class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"
+            class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"
           ></div>
           <svg
             v-else
-            class="w-5 h-5"
+            class="w-6 h-6"
             fill="none"
             stroke="currentColor"
             stroke-width="2"
@@ -81,7 +81,7 @@
       </div>
 
       <!-- Images Grid -->
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         <div
           v-for="(image, index) in images"
           :key="image.platform"
@@ -90,7 +90,7 @@
         >
           <!-- Card -->
           <div
-            class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden hover:shadow-lg transition-all duration-300 group-hover:-translate-y-1"
+            class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200/60 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 hover:border-violet-200"
           >
             <!-- Image container -->
             <div
@@ -100,36 +100,36 @@
               <img
                 :src="image.url"
                 :alt="`${image.platform} preview`"
-                class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
                 @load="onImageLoad"
               />
 
               <!-- Overlay -->
               <div
-                class="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"
+                class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500"
               ></div>
 
               <!-- Platform badge -->
               <div
-                class="absolute top-3 left-3 px-2 py-1 bg-white/90 backdrop-blur-sm rounded-lg text-xs font-semibold text-gray-800"
+                class="absolute top-4 left-4 px-3 py-2 bg-white/95 backdrop-blur-md rounded-xl text-xs font-bold text-gray-800 shadow-lg border border-gray-200/50"
               >
                 {{ getPlatformName(image.platform) }}
               </div>
 
               <!-- Dimensions badge -->
               <div
-                class="absolute top-3 right-3 px-2 py-1 bg-black/70 backdrop-blur-sm rounded-lg text-xs font-medium text-white"
+                class="absolute top-4 right-4 px-3 py-2 bg-black/80 backdrop-blur-md rounded-xl text-xs font-bold text-white shadow-lg"
               >
                 {{ image.aspectRatio }}
               </div>
 
               <!-- Preview overlay -->
               <div
-                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
               >
-                <div class="bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg">
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-gray-200/50 group-hover:scale-110 transition-transform duration-300">
                   <svg
-                    class="w-6 h-6 text-gray-700"
+                    class="w-8 h-8 text-gray-700"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -151,12 +151,12 @@
             </div>
 
             <!-- Content -->
-            <div class="p-4">
-              <div class="text-center mb-3">
-                <h3 class="font-semibold text-gray-900 mb-1">
+            <div class="p-6">
+              <div class="text-center mb-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
                   {{ getPlatformName(image.platform) }}
                 </h3>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 font-medium">
                   {{ getFormatDescription(image.platform) }}
                 </p>
               </div>
@@ -165,19 +165,19 @@
               <button
                 @click="downloadImage(image.url, image.platform)"
                 :disabled="downloadingItem === image.platform"
-                class="w-full px-4 py-2 rounded-xl font-medium text-white transition-all duration-300 hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full px-5 py-3 rounded-2xl font-bold text-white transition-all duration-300 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
                 :style="{
                   background: `linear-gradient(135deg, ${image.color} 0%, ${image.hoverColor} 100%)`,
                 }"
               >
-                <div class="flex items-center justify-center gap-2">
+                <div class="flex items-center justify-center gap-3">
                   <div
                     v-if="downloadingItem === image.platform"
-                    class="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"
+                    class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"
                   ></div>
                   <svg
                     v-else
-                    class="w-4 h-4"
+                    class="w-5 h-5"
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
@@ -189,7 +189,7 @@
                       d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                     />
                   </svg>
-                  <span class="text-sm">
+                  <span class="text-base">
                     {{ downloadingItem === image.platform ? 'Downloading...' : 'Download' }}
                   </span>
                 </div>
@@ -200,12 +200,12 @@
       </div>
 
       <!-- Empty state -->
-      <div v-if="images.length === 0 && !error" class="text-center py-16">
+      <div v-if="images.length === 0 && !error" class="text-center py-20">
         <div
-          class="w-24 h-24 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-6"
+          class="w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg border border-gray-200/50"
         >
           <svg
-            class="w-12 h-12 text-gray-400"
+            class="w-16 h-16 text-gray-400"
             fill="none"
             stroke="currentColor"
             stroke-width="1.5"
@@ -218,8 +218,8 @@
             />
           </svg>
         </div>
-        <h3 class="text-xl font-semibold text-gray-900 mb-2">Ready to Process</h3>
-        <p class="text-gray-600 max-w-md mx-auto">
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">Ready to Process</h3>
+        <p class="text-lg text-gray-600 max-w-lg mx-auto font-medium">
           Upload an image above to see your perfectly cropped versions appear here
         </p>
       </div>
@@ -298,7 +298,7 @@ const onImageLoad = (event: Event) => {
 
 <style scoped>
 .image-card {
-  animation: fadeInUp 0.6s ease-out forwards;
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
   opacity: 0;
 }
 
@@ -316,6 +316,6 @@ const onImageLoad = (event: Event) => {
 /* Image loading effect */
 img {
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.5s ease-in-out;
 }
 </style>
