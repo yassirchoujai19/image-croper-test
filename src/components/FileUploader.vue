@@ -1,12 +1,11 @@
 <template>
-<<<<<<< HEAD
   <div class="file-uploader">
     <div class="uploader-container">
       <label for="uploader-input" class="upload-label">
         <input
           id="uploader-input"
           type="file"
-          accept="image/*"
+          :accept="ACCEPT_FILE_TYPES"
           @change="handleFileChange"
           @dragover.prevent="handleDragOver"
           @dragleave.prevent="handleDragLeave"
@@ -21,97 +20,6 @@
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 class="upload-icon"
-=======
-  <div class="file-uploader mb-16">
-    <div class="max-w-4xl mx-auto">
-      <!-- Section header -->
-      <div class="text-center mb-16">
-        <div
-          class="inline-flex items-center gap-2 mb-6 px-5 py-3 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 rounded-full text-sm font-semibold border border-violet-200/50 shadow-sm"
-        >
-          <span
-            class="w-7 h-7 bg-gradient-to-br from-violet-600 to-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg"
-            >1</span
-          >
-          Upload Image
-        </div>
-        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Select Your Image</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto font-medium leading-relaxed">
-          Upload any image and we'll automatically generate perfect crops for all major social media
-          platforms
-        </p>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <!-- Upload Area -->
-        <div class="order-2 md:order-1">
-          <input
-            ref="fileInput"
-            type="file"
-            accept="image/*"
-            @change="handleFileSelect"
-            class="hidden"
-          />
-
-          <div class="upload-zone group relative" @click="triggerFileSelect">
-            <div
-              class="relative p-12 border-2 border-dashed border-gray-300 rounded-3xl bg-white/80 backdrop-blur-sm hover:bg-white transition-all duration-500 group-hover:border-violet-400 group-hover:shadow-2xl group-hover:shadow-violet-500/10 cursor-pointer"
-            >
-              <!-- Upload icon -->
-              <div class="text-center">
-                <div
-                  class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-violet-500 to-purple-600 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-500 shadow-xl shadow-violet-500/25"
-                >
-                  <svg
-                    class="w-10 h-10 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v8"
-                    />
-                  </svg>
-                </div>
-
-                <h3
-                  class="text-2xl font-bold text-gray-900 mb-3 group-hover:text-violet-700 transition-colors duration-300"
-                >
-                  Drop your image here
-                </h3>
-                <p class="text-lg text-gray-600 mb-6 font-medium">or click to browse files</p>
-
-                <!-- Supported formats -->
-                <div class="flex justify-center gap-3 mb-6">
-                  <span class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 rounded-xl text-sm font-semibold border border-gray-200"
-                    >JPG</span
-                  >
-                  <span class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 rounded-xl text-sm font-semibold border border-gray-200"
-                    >PNG</span
-                  >
-                  <span class="px-4 py-2 bg-gradient-to-r from-gray-100 to-gray-50 text-gray-700 rounded-xl text-sm font-semibold border border-gray-200"
-                    >WEBP</span
-                  >
-                </div>
-
-                <p class="text-base text-gray-500 font-medium">Maximum file size: 10MB</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Features -->
-        <div class="order-1 md:order-2 space-y-8">
-          <div class="flex items-start gap-5">
-            <div
-              class="w-14 h-14 bg-gradient-to-br from-violet-100 to-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg border border-violet-200/50"
-            >
-              <svg
-                class="w-7 h-7 text-violet-600"
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -124,28 +32,19 @@
                 />
               </svg>
             </div>
-<<<<<<< HEAD
             <div class="upload-text">
               <span class="main-text">Click or drag image to upload</span>
               <p class="sub-text">Supports PNG, JPG, and WEBP formats</p>
-=======
-            <div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">Lightning Fast</h3>
-              <p class="text-gray-600 text-base font-medium leading-relaxed">
-                Process images in seconds with our optimized cropping engine
-              </p>
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
             </div>
           </div>
           <div class="upload-shine"></div>
         </div>
       </label>
 
-<<<<<<< HEAD
       <div v-if="isLoading" class="upload-progress-container">
         <div class="progress-header">
           <span class="progress-title">Processing your image</span>
-          <span class="progress-percentage">{{ uploadProgress }}%</span>
+          <span class="progress-percentage">{{ Math.floor(uploadProgress) }}%</span>
         </div>
         <div class="upload-progress-bar-wrapper">
           <div class="upload-progress-bar" :style="{ width: uploadProgress + '%' }">
@@ -157,84 +56,6 @@
           <div class="dot" :class="{ active: uploadProgress > 50 }"></div>
           <div class="dot" :class="{ active: uploadProgress > 75 }"></div>
           <div class="dot" :class="{ active: uploadProgress > 90 }"></div>
-=======
-          <div class="flex items-start gap-5">
-            <div
-              class="w-14 h-14 bg-gradient-to-br from-violet-100 to-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg border border-violet-200/50"
-            >
-              <svg
-                class="w-7 h-7 text-violet-600"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">Perfect Quality</h3>
-              <p class="text-gray-600 text-base font-medium leading-relaxed">
-                Maintain image quality with smart cropping algorithms
-              </p>
-            </div>
-          </div>
-
-          <div class="flex items-start gap-5">
-            <div
-              class="w-14 h-14 bg-gradient-to-br from-violet-100 to-purple-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg border border-violet-200/50"
-            >
-              <svg
-                class="w-7 h-7 text-violet-600"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-xl font-bold text-gray-900 mb-2">Batch Download</h3>
-              <p class="text-gray-600 text-base font-medium leading-relaxed">Download all formats at once or individually</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Progress section -->
-      <div v-if="isLoading" class="mt-12">
-        <div class="max-w-lg mx-auto bg-white/90 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-gray-200/50">
-          <div class="flex items-center gap-4 mb-6">
-            <div
-              class="w-10 h-10 border-3 border-violet-200 border-t-violet-600 rounded-full animate-spin"
-            ></div>
-            <span class="text-lg font-bold text-gray-900">Processing your image...</span>
-          </div>
-
-          <!-- Progress bar -->
-          <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
-            <div
-              class="h-3 bg-gradient-to-r from-violet-500 to-purple-600 rounded-full transition-all duration-500 ease-out shadow-sm"
-              :style="{ width: uploadProgress + '%' }"
-            ></div>
-          </div>
-
-          <div class="flex justify-between text-base">
-            <span class="font-semibold text-gray-700">{{ uploadProgress }}% complete</span>
-            <span class="font-bold text-violet-600">{{
-              getProgressMessage(uploadProgress)
-            }}</span>
-          </div>
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
         </div>
       </div>
     </div>
@@ -242,21 +63,47 @@
 </template>
 
 <script setup lang="ts">
-import * as UC from '@uploadcare/file-uploader'
-UC.defineComponents(UC)
-
 import { ref } from 'vue'
 
-const { isLoading, uploadProgress } = defineProps<{
+// --- Props & Emits ---
+
+/**
+ * Defines the component's props.
+ * @property {boolean} isLoading - A flag to show the loading state.
+ * @property {number} uploadProgress - The current progress percentage (0-100).
+ */
+const props = defineProps<{
   isLoading: boolean
   uploadProgress: number
 }>()
 
+/**
+ * Defines the custom events emitted by this component.
+ * @event file-uploaded - Emitted with the URL of the processed file.
+ */
 const emit = defineEmits(['file-uploaded'])
 
+// --- State Management ---
+
+/**
+ * Reactive state to track if a file is being dragged over the drop zone.
+ */
 const isDragOver = ref(false)
 
-// Handle file selection via input
+// --- Constants ---
+
+/**
+ * A string defining the accepted file types for the input element.
+ * This is a best practice for a clear and single source of truth for validation.
+ */
+const ACCEPT_FILE_TYPES = 'image/png, image/jpeg, image/webp'
+
+// --- Event Handlers & Core Logic ---
+
+/**
+ * Handles the file change event from the `<input type="file">`.
+ * @param {Event} event - The DOM event.
+ */
 const handleFileChange = (event: Event) => {
   const target = event.target as HTMLInputElement
   const file = target.files?.[0]
@@ -265,71 +112,89 @@ const handleFileChange = (event: Event) => {
   }
 }
 
-// Handle drag over
+/**
+ * Handles the 'dragover' event to show the drag-over visual state.
+ * @param {DragEvent} event - The DOM DragEvent.
+ */
 const handleDragOver = (event: DragEvent) => {
   event.preventDefault()
   isDragOver.value = true
 }
 
-// Handle drag leave
+/**
+ * Handles the 'dragleave' event to reset the drag-over visual state.
+ * @param {DragEvent} event - The DOM DragEvent.
+ */
 const handleDragLeave = (event: DragEvent) => {
   event.preventDefault()
   isDragOver.value = false
 }
 
-// Handle file drop
+/**
+ * Handles the 'drop' event to process the dropped file.
+ * @param {DragEvent} event - The DOM DragEvent.
+ */
 const handleDrop = (event: DragEvent) => {
   event.preventDefault()
   isDragOver.value = false
 
-  const files = event.dataTransfer?.files
-  if (files && files.length > 0) {
-    const file = files[0]
-    if (isValidImageFile(file)) {
-      processFile(file)
-    } else {
-      console.error('Invalid file type')
-    }
+  const file = event.dataTransfer?.files?.[0]
+  if (file) {
+    processFile(file)
   }
 }
 
-// Validate file type
+/**
+ * Validates if a file is an accepted image type.
+ * @param {File} file - The file to validate.
+ * @returns {boolean} True if the file is a valid image, otherwise false.
+ */
 const isValidImageFile = (file: File): boolean => {
-  return file.type.startsWith('image/')
+  const validImageMimeTypes = ['image/jpeg', 'image/png', 'image/webp']
+  return validImageMimeTypes.includes(file.type)
 }
 
-// Process the uploaded file
+/**
+ * Processes the uploaded file, validates it, and emits the file URL.
+ * It uses a FileReader to ensure the file is valid before emitting.
+ * @param {File} file - The file object from the upload.
+ */
 const processFile = (file: File) => {
   if (!isValidImageFile(file)) {
-    console.error('Please upload a valid image file')
+    console.error('❌ Invalid file type. Please upload a valid image file (PNG, JPG, or WEBP).')
+    // Consider adding a prop or emit to show this error in the UI
     return
   }
 
-  console.log('🔄 Processing file:', file.name, file.type, file.size)
+  console.log('🔄 Processing file:', file.name)
 
-  // Create object URL for the file
   const fileUrl = URL.createObjectURL(file)
-  console.log('📸 Created blob URL:', fileUrl)
 
-  // Test the blob URL by creating a test image
+  // Use an Image object to verify the URL and file data
   const testImg = new Image()
   testImg.onload = () => {
-    console.log('✅ Blob URL is valid and image loads successfully')
+    console.log('✅ Blob URL is valid and image loads successfully.')
     console.log('Image dimensions:', testImg.naturalWidth, 'x', testImg.naturalHeight)
-    // Emit the file URL to parent component
     emit('file-uploaded', fileUrl)
   }
   testImg.onerror = (error) => {
     console.error('❌ Blob URL failed to load:', error)
-    URL.revokeObjectURL(fileUrl) // Clean up the failed URL
+    URL.revokeObjectURL(fileUrl) // Clean up the URL if it fails
   }
   testImg.src = fileUrl
 }
 </script>
 
 <style scoped>
+/*
+ * --- Component Styling ---
+ * The CSS remains largely the same as it is already well-structured and
+ * uses modern techniques like animations and transitions.
+ */
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
+/* Main container for the entire component */
 .file-uploader {
   font-family: 'Inter', sans-serif;
   text-align: center;
@@ -337,13 +202,13 @@ const processFile = (file: File) => {
   position: relative;
 }
 
-<<<<<<< HEAD
 .uploader-container {
   max-width: 600px;
   margin: 0 auto;
   position: relative;
 }
 
+/* Visually-hidden input for accessibility and custom styling */
 .upload-label {
   display: block;
   width: 100%;
@@ -358,6 +223,7 @@ const processFile = (file: File) => {
   pointer-events: none;
 }
 
+/* Main drag-and-drop button with glassmorphism and animation effects */
 .upload-btn {
   position: relative;
   display: flex;
@@ -377,6 +243,7 @@ const processFile = (file: File) => {
   animation: slideInUp 0.6s ease-out;
 }
 
+/* Hover and drag-over states */
 .upload-btn:hover,
 .upload-btn.drag-over {
   border-color: rgba(16, 185, 129, 0.6);
@@ -387,6 +254,7 @@ const processFile = (file: File) => {
   background: rgba(16, 185, 129, 0.1);
 }
 
+/* Rotating background decoration */
 .upload-decoration {
   position: absolute;
   top: -50%;
@@ -433,6 +301,7 @@ const processFile = (file: File) => {
   align-items: center;
 }
 
+/* Animated icon and text */
 .icon-container {
   position: relative;
   margin-bottom: 1.5rem;
@@ -477,20 +346,12 @@ const processFile = (file: File) => {
   color: white;
   filter: drop-shadow(0 4px 8px rgba(16, 185, 129, 0.3));
   transition: all 0.3s ease;
-=======
-.upload-zone {
-  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 }
 
 .upload-btn:hover .upload-icon,
 .upload-btn.drag-over .upload-icon {
   color: #10b981;
   filter: drop-shadow(0 8px 16px rgba(16, 185, 129, 0.5));
-}
-
-.upload-text {
-  text-align: center;
 }
 
 .main-text {
@@ -521,6 +382,7 @@ const processFile = (file: File) => {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Shine effect on hover */
 .upload-shine {
   position: absolute;
   inset: 0;
@@ -536,7 +398,7 @@ const processFile = (file: File) => {
   transform: translateX(100%);
 }
 
-/* Progress Container */
+/* Progress bar styling */
 .upload-progress-container {
   margin-top: 2rem;
   padding: 2rem;
@@ -595,6 +457,7 @@ const processFile = (file: File) => {
   box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
 }
 
+/* Animated shine effect on the progress bar */
 .progress-shine {
   position: absolute;
   inset: 0;
@@ -612,6 +475,7 @@ const processFile = (file: File) => {
   }
 }
 
+/* Dots animation */
 .progress-dots {
   display: flex;
   justify-content: center;
@@ -669,20 +533,16 @@ const processFile = (file: File) => {
     padding: 2rem 1rem;
     margin: 1rem;
   }
-
   .upload-icon {
     width: 3rem;
     height: 3rem;
   }
-
   .main-text {
     font-size: 1.125rem;
   }
-
   .sub-text {
     font-size: 0.8rem;
   }
-
   .upload-progress-container {
     margin: 1rem;
     padding: 1.5rem;

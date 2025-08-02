@@ -1,5 +1,4 @@
 <template>
-<<<<<<< HEAD
   <div class="smart-cropper-app">
     <header class="header-section">
       <div class="header-content">
@@ -8,103 +7,11 @@
           Upload an image and instantly get perfectly cropped versions for all your favorite social
           media platforms.
         </p>
-=======
-  <div class="crop-master-app">
-    <!-- Modern gradient background -->
-    <div class="fixed inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute inset-0 bg-gradient-to-br from-slate-50 via-white to-violet-50/30"></div>
-      <div class="absolute top-0 left-1/4 w-96 h-96 bg-violet-200/20 rounded-full blur-3xl"></div>
-      <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-purple-200/20 rounded-full blur-3xl"></div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="relative z-10 bg-white/90 backdrop-blur-xl border-b border-gray-200/60 sticky top-0">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <div class="flex items-center space-x-3">
-            <div
-              class="w-12 h-12 bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg shadow-violet-500/25"
-            >
-              <svg
-                class="w-7 h-7 text-white"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-            </div>
-            <div>
-              <h1 class="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 bg-clip-text text-transparent">CropMaster Pro</h1>
-              <p class="text-sm text-gray-600 font-medium">Professional Image Cropping</p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4">
-            <span class="px-4 py-2 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 text-sm font-semibold rounded-full border border-violet-200/50">
-              Beta v2.0
-            </span>
-          </div>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section class="relative py-24 overflow-hidden">
-      <div class="max-w-4xl mx-auto text-center px-4">
-        <div
-          class="inline-flex items-center gap-2 mb-8 px-5 py-3 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 rounded-full text-sm font-semibold border border-violet-200/50 shadow-sm"
-        >
-          <div class="w-2.5 h-2.5 bg-violet-500 rounded-full animate-pulse"></div>
-          Professional Grade
-        </div>
-
-        <h1 class="text-6xl md:text-7xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
-          Precision Image
-          <span
-            class="bg-gradient-to-r from-violet-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent"
-          >
-            Cropping
-          </span>
-        </h1>
-
-        <p class="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed font-medium">
-          Transform your images into pixel-perfect crops for every social media platform with our
-          advanced cropping engine
-        </p>
-
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto">
-          <div class="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="text-3xl font-black text-violet-600 mb-2">50+</div>
-            <div class="text-sm font-semibold text-gray-700">Formats</div>
-          </div>
-          <div class="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="text-3xl font-black text-violet-600 mb-2">4K</div>
-            <div class="text-sm font-semibold text-gray-700">Quality</div>
-          </div>
-          <div class="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="text-3xl font-black text-violet-600 mb-2">1-Click</div>
-            <div class="text-sm font-semibold text-gray-700">Download</div>
-          </div>
-          <div class="text-center p-6 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg border border-gray-200/50 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
-            <div class="text-3xl font-black text-violet-600 mb-2">Free</div>
-            <div class="text-sm font-semibold text-gray-700">Forever</div>
-          </div>
-        </div>
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
       </div>
       <div class="header-decoration"></div>
     </header>
 
-<<<<<<< HEAD
     <main class="main-content">
-=======
-    <main class="relative max-w-7xl mx-auto px-4 py-16">
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
       <FileUploader
         @file-uploaded="handleFileUpload"
         :isLoading="isLoading"
@@ -118,44 +25,6 @@
         @download-all="downloadAll"
       />
     </main>
-<<<<<<< HEAD
-=======
-
-    <!-- Footer -->
-    <footer class="relative mt-24 py-16 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
-      <div class="max-w-4xl mx-auto px-6 text-center">
-        <div class="flex justify-center items-center gap-3 mb-6">
-          <div
-            class="w-12 h-12 bg-gradient-to-br from-violet-600 to-purple-700 rounded-2xl flex items-center justify-center shadow-lg shadow-violet-500/25"
-          >
-            <svg
-              class="w-7 h-7 text-white"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
-              />
-            </svg>
-          </div>
-          <div>
-            <h3 class="text-2xl font-bold">CropMaster Pro</h3>
-            <p class="text-gray-400 text-base font-medium">Professional Image Cropping</p>
-          </div>
-        </div>
-        <p class="text-gray-300 mb-8 text-lg">
-          Built with precision and care for content creators worldwide
-        </p>
-        <div class="text-base text-gray-400 font-medium">
-          © 2024 CropMaster Pro. Powered by Vue.js & TypeScript.
-        </div>
-      </div>
-    </footer>
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
   </div>
 </template>
 
@@ -164,6 +33,11 @@ import { ref, onMounted } from 'vue'
 import FileUploader from './/components/FileUploader.vue'
 import SocialMediaPreviews from './/components/SocialMediaPreviews.vue'
 
+// --- Interfaces & Constants ---
+
+/**
+ * Defines the structure for a social media size configuration.
+ */
 interface SizeConfig {
   platform: string
   aspectRatio: string
@@ -173,10 +47,63 @@ interface SizeConfig {
   height?: number
 }
 
-const isLoading = ref(false)
-const uploadProgress = ref(0)
-const error = ref<string | null>(null)
-const uploadedImageUrl = ref<string | null>(null)
+/**
+ * An array of possible file paths to search for the sizes.json file.
+ * This provides flexibility in different deployment environments.
+ */
+const POSSIBLE_SIZE_PATHS = [
+  'src/assets/sizes.json',
+  '.src/assets/size.json',
+  'src/size.json',
+  './size.json',
+]
+
+/**
+ * A fallback configuration to be used if sizes.json cannot be loaded.
+ */
+const FALLBACK_SIZES: SizeConfig[] = [
+  {
+    platform: 'Instagram - Square Post',
+    aspectRatio: '1:1',
+    color: '#E1306C',
+    hoverColor: '#C13584',
+  },
+  {
+    platform: 'Facebook - Cover Photo',
+    aspectRatio: '205:78',
+    color: '#1877F2',
+    hoverColor: '#166FE5',
+  },
+  { platform: 'Twitter - Header', aspectRatio: '3:1', color: '#1DA1F2', hoverColor: '#1A91DA' },
+  { platform: 'YouTube - Thumbnail', aspectRatio: '16:9', color: '#FF0000', hoverColor: '#CC0000' },
+  { platform: 'LinkedIn - Post', aspectRatio: '191:100', color: '#0A66C2', hoverColor: '#004182' },
+  { platform: 'TikTok - Video', aspectRatio: '9:16', color: '#000000', hoverColor: '#333333' },
+]
+
+/**
+ * Maps application names to their brand colors for consistent styling.
+ */
+const APP_COLOR_MAP: Record<string, { color: string; hoverColor: string }> = {
+  Facebook: { color: '#1877F2', hoverColor: '#166FE5' },
+  'Facebook Ads': { color: '#1877F2', hoverColor: '#166FE5' },
+  Instagram: { color: '#E1306C', hoverColor: '#C13584' },
+  Twitter: { color: '#1DA1F2', hoverColor: '#1A91DA' },
+  YouTube: { color: '#FF0000', hoverColor: '#CC0000' },
+  TikTok: { color: '#000000', hoverColor: '#333333' },
+  LinkedIn: { color: '#0A66C2', hoverColor: '#004182' },
+  Pinterest: { color: '#BD081C', hoverColor: '#9D0619' },
+  Snapchat: { color: '#FFFC00', hoverColor: '#E6E300' },
+  'Open Graph': { color: '#10b981', hoverColor: '#059669' },
+  Email: { color: '#6366F1', hoverColor: '#4F46E5' },
+  'Google Banner Ads': { color: '#4285F4', hoverColor: '#3367D6' },
+}
+
+// --- State Management with Vue's `ref` ---
+
+const isLoading = ref(false) // Indicates if the image is currently being processed.
+const uploadProgress = ref(0) // Tracks the progress of the processing simulation.
+const error = ref<string | null>(null) // Stores any error messages.
+const uploadedImageUrl = ref<string | null>(null) // The URL of the uploaded image.
 const processedImages = ref<
   Array<{
     platform: string
@@ -185,54 +112,52 @@ const processedImages = ref<
     color: string
     hoverColor: string
   }>
->([])
-const platformSizes = ref<SizeConfig[]>([])
+>([]) // The array of processed image objects for preview and download.
+const platformSizes = ref<SizeConfig[]>([]) // The array of social media size configurations.
 
-// Load sizes from JSON file
+// --- Helper Functions ---
+
+/**
+ * Helper function to calculate the greatest common divisor (GCD) for aspect ratio calculation.
+ * @param {number} a - The first number (width).
+ * @param {number} b - The second number (height).
+ * @returns {number} The greatest common divisor.
+ */
+const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b))
+
+/**
+ * Retrieves the brand-specific colors for a given social media platform.
+ * @param {string} appName - The name of the social media platform.
+ * @returns {object} An object containing the color and hoverColor.
+ */
+const getAppColors = (appName: string) => {
+  return APP_COLOR_MAP[appName] || { color: '#10b981', hoverColor: '#059669' }
+}
+
+/**
+ * Tries to load platform size configurations from a JSON file.
+ * It iterates through a list of possible paths until it finds a valid file.
+ * If no file is found, it falls back to a predefined set of sizes.
+ */
 const loadSizes = async () => {
-  const possiblePaths = [
-    'src/assets/sizes.json',
-    '.src/assets/size.json',
-    'src/size.json',
-    './size.json',
-  ]
-
-  for (const path of possiblePaths) {
+  for (const path of POSSIBLE_SIZE_PATHS) {
     try {
-      console.log(`📁 Trying to load sizes from ${path}...`)
       const response = await fetch(path)
-
-      if (!response.ok) {
-        console.log(`❌ ${path} not found (${response.status})`)
-        continue
-      }
+      if (!response.ok) continue
 
       const contentType = response.headers.get('content-type')
-      if (!contentType || !contentType.includes('application/json')) {
-        console.log(`❌ ${path} is not JSON (content-type: ${contentType})`)
-        continue
-      }
+      if (!contentType || !contentType.includes('application/json')) continue
 
       const appsData = await response.json()
-      console.log('✅ Raw JSON data loaded:', appsData)
-
-      // Transform the JSON data into our expected format
       const transformedSizes: SizeConfig[] = []
 
+      // Loop through each app and its sizes to transform the data
       appsData.forEach((app: any) => {
-        // Get the main/simple sizes for each app first
-        const mainSizes = app.sizes.filter((size: any) => size.simple === true)
-
-        // If we have simple sizes, use them, otherwise take first 3 sizes
-        const sizesToUse = mainSizes.length > 0 ? mainSizes : app.sizes.slice(0, 3)
-
+        const sizesToUse =
+          app.sizes.filter((size: any) => size.simple === true) || app.sizes.slice(0, 3)
         sizesToUse.forEach((size: any) => {
-          // Calculate aspect ratio from width and height
-          const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b))
           const divisor = gcd(size.width, size.height)
           const aspectRatio = `${size.width / divisor}:${size.height / divisor}`
-
-          // Get app-specific colors
           const colors = getAppColors(app.app)
 
           transformedSizes.push({
@@ -247,182 +172,122 @@ const loadSizes = async () => {
       })
 
       platformSizes.value = transformedSizes
-      console.log('✅ Transformed platform sizes:', transformedSizes)
       return // Success! Exit the function
     } catch (err) {
-      console.log(`❌ Error loading ${path}:`, err)
-      continue
+      console.error(`❌ Error loading sizes from ${path}:`, err)
     }
   }
 
-  // If we get here, none of the paths worked
-  console.log('⚠️ Could not load size.json from any location, using fallback sizes')
-
-  // Fallback to default sizes if file can't be loaded
-  platformSizes.value = [
-    {
-      platform: 'Instagram - Square Post',
-      aspectRatio: '1:1',
-      color: '#E1306C',
-      hoverColor: '#C13584',
-    },
-    {
-      platform: 'Facebook - Cover Photo',
-      aspectRatio: '205:78',
-      color: '#1877F2',
-      hoverColor: '#166FE5',
-    },
-    {
-      platform: 'Twitter - Header',
-      aspectRatio: '3:1',
-      color: '#1DA1F2',
-      hoverColor: '#1A91DA',
-    },
-    {
-      platform: 'YouTube - Thumbnail',
-      aspectRatio: '16:9',
-      color: '#FF0000',
-      hoverColor: '#CC0000',
-    },
-    {
-      platform: 'LinkedIn - Post',
-      aspectRatio: '191:100',
-      color: '#0A66C2',
-      hoverColor: '#004182',
-    },
-    {
-      platform: 'TikTok - Video',
-      aspectRatio: '9:16',
-      color: '#000000',
-      hoverColor: '#333333',
-    },
-  ]
-  console.log('🔄 Using fallback sizes')
+  // If the loop finishes without returning, use fallback sizes
+  console.warn('⚠️ Could not load sizes from any location, using fallback sizes.')
+  platformSizes.value = FALLBACK_SIZES
 }
 
-// Helper function to get app-specific colors
-const getAppColors = (appName: string) => {
-  const colorMap: Record<string, { color: string; hoverColor: string }> = {
-    Facebook: { color: '#1877F2', hoverColor: '#166FE5' },
-    'Facebook Ads': { color: '#1877F2', hoverColor: '#166FE5' },
-    Instagram: { color: '#E1306C', hoverColor: '#C13584' },
-    Twitter: { color: '#1DA1F2', hoverColor: '#1A91DA' },
-    YouTube: { color: '#FF0000', hoverColor: '#CC0000' },
-    TikTok: { color: '#000000', hoverColor: '#333333' },
-    LinkedIn: { color: '#0A66C2', hoverColor: '#004182' },
-    Pinterest: { color: '#BD081C', hoverColor: '#9D0619' },
-    Snapchat: { color: '#FFFC00', hoverColor: '#E6E300' },
-    'Open Graph': { color: '#10b981', hoverColor: '#059669' },
-    Email: { color: '#6366F1', hoverColor: '#4F46E5' },
-    'Google Banner Ads': { color: '#4285F4', hoverColor: '#3367D6' },
-  }
+// --- Lifecycle Hooks ---
 
-  return colorMap[appName] || { color: '#10b981', hoverColor: '#059669' }
-}
-
-// Load sizes on component mount
+// Load platform sizes when the component is first mounted.
 onMounted(() => {
   loadSizes()
 })
 
-// Handle file upload from FileUploader component
-const handleFileUpload = async (fileUrl: string) => {
-  console.log('🚀 File uploaded, processing:', fileUrl)
+// --- Event Handlers ---
 
+/**
+ * Handles the file upload event from the FileUploader component.
+ * It simulates an image processing pipeline and updates the UI accordingly.
+ * @param {string} fileUrl - The URL (e.g., a blob URL) of the uploaded image.
+ */
+const handleFileUpload = async (fileUrl: string) => {
   try {
     error.value = null
     isLoading.value = true
     uploadProgress.value = 0
     uploadedImageUrl.value = fileUrl
 
-    // Simulate processing time with progress
-    const progressInterval = setInterval(() => {
-      uploadProgress.value += Math.random() * 10 + 5
-      if (uploadProgress.value >= 100) {
+    // Simulate image processing with a progress bar
+    const simulateProgress = () => {
+      if (uploadProgress.value < 100) {
+        uploadProgress.value += Math.random() * 10 + 5
+        setTimeout(simulateProgress, 200)
+      } else {
         uploadProgress.value = 100
-        clearInterval(progressInterval)
+        // Process the image after the simulation is complete
+        processImage(fileUrl)
       }
-    }, 200)
+    }
+    simulateProgress()
+  } catch (err) {
+    console.error('❌ Error processing image:', err)
+    error.value = 'Failed to process image. Please try again.'
+  } finally {
+    // Note: isLoading is set to false in the `processImage` function's finally block
+  }
+}
 
-    // Wait for progress to complete
-    await new Promise((resolve) => {
-      const checkProgress = () => {
-        if (uploadProgress.value >= 100) {
-          resolve(true)
-        } else {
-          setTimeout(checkProgress, 100)
-        }
-      }
-      checkProgress()
-    })
-
-    // Verify the fileUrl is valid before using it
-    console.log('📸 Using file URL for all platforms:', fileUrl)
-    console.log('📐 Using platform sizes from JSON:', platformSizes.value)
-
-    // Create processed images array using the loaded platform sizes
+/**
+ * Creates the processed image objects based on the uploaded image and platform sizes.
+ * @param {string} fileUrl - The URL of the uploaded image.
+ */
+const processImage = (fileUrl: string) => {
+  try {
     processedImages.value = platformSizes.value.map((platform) => ({
       platform: platform.platform,
       aspectRatio: platform.aspectRatio,
       color: platform.color,
       hoverColor: platform.hoverColor,
-      url: fileUrl, // Use the exact same blob URL for all formats
+      url: fileUrl, // In a real-world app, this would be a URL to a new, cropped image
     }))
-
-    console.log('✅ Processing complete, created images:', processedImages.value)
-  } catch (err) {
-    console.error('❌ Error processing image:', err)
-    error.value = 'Failed to process image. Please try again.'
   } finally {
     isLoading.value = false
     uploadProgress.value = 0
   }
 }
 
+/**
+ * Triggers the download of a single image.
+ * @param {object} imageInfo - An object containing the image URL and platform name.
+ */
 const downloadImage = ({ url, platform }: { url: string; platform: string }) => {
-  console.log('📥 Downloading image:', platform, url)
-
-  // Create a temporary link to download the image
   const link = document.createElement('a')
   link.href = url
+  // Create a user-friendly filename
   link.download = `${platform.toLowerCase().replace(/\s+/g, '-')}-cropped.jpg`
   document.body.appendChild(link)
   link.click()
   document.body.removeChild(link)
 }
 
+/**
+ * Triggers the download of all processed images with a slight delay between each.
+ */
 const downloadAll = () => {
-  console.log('📥 Downloading all images')
-
   processedImages.value.forEach((image, index) => {
+    // Stagger the downloads to prevent browser pop-up blockers
     setTimeout(() => {
       downloadImage({ url: image.url, platform: image.platform })
-    }, index * 500) // Stagger downloads
+    }, index * 500)
   })
 }
 </script>
 
-<<<<<<< HEAD
 <style scoped>
+/*
+ * --- Component Styling ---
+  Comments were added for better context.
+ */
+
+/* Import a modern font for a clean look */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
-=======
-<style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 
 .smart-cropper-app {
   min-height: 100vh;
-<<<<<<< HEAD
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-=======
-  background: #ffffff;
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
   font-family: 'Inter', sans-serif;
   position: relative;
   overflow-x: hidden;
 }
 
-<<<<<<< HEAD
+/* Background gradient animation */
 .smart-cropper-app::before {
   content: '';
   position: fixed;
@@ -436,11 +301,6 @@ const downloadAll = () => {
     radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
   animation: float 20s ease-in-out infinite;
   pointer-events: none;
-=======
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 8px;
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 }
 
 @keyframes float {
@@ -456,21 +316,24 @@ const downloadAll = () => {
   }
 }
 
-<<<<<<< HEAD
 .header-section {
   position: relative;
   padding: 4rem 2rem 6rem;
   text-align: center;
+  /* Glass morphism effect */
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   overflow: hidden;
+  box-shadow:
+    0 8px 32px 0 rgba(31, 38, 135, 0.37),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
 }
 
 .header-content {
   position: relative;
   z-index: 2;
-  max-width: 4xl;
+  max-width: 80rem;
   margin: 0 auto;
 }
 
@@ -494,6 +357,7 @@ const downloadAll = () => {
   }
 }
 
+/* Styled headline with a gradient text effect and animation */
 .headline {
   font-size: clamp(2.5rem, 5vw, 4rem);
   font-weight: 800;
@@ -542,46 +406,28 @@ const downloadAll = () => {
   .header-section {
     padding: 3rem 1rem 4rem;
   }
-
   .main-content {
     padding: 2rem 1rem;
   }
-
   .subtitle {
     font-size: 1.125rem;
   }
 }
 
-/* Enhanced animations for interactive elements */
+/* Global transition for smooth animations */
 .smart-cropper-app * {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Subtle hover effects for better interactivity */
+/* Hover effect on header decoration */
 .header-section:hover .header-decoration {
   animation-duration: 20s;
 }
 
-/* Glass morphism effect for modern look */
-.header-section {
-  box-shadow:
-    0 8px 32px 0 rgba(31, 38, 135, 0.37),
-    inset 0 1px 0 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Improved focus states for accessibility */
+/* Accessibility: Improved focus states */
 .smart-cropper-app :focus-visible {
   outline: 2px solid rgba(255, 255, 255, 0.8);
   outline-offset: 2px;
   border-radius: 4px;
-=======
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(135deg, #8b5cf6, #7c3aed);
-  border-radius: 10px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(135deg, #7c3aed, #6d28d9);
->>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 }
 </style>
