@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div class="page-wrapper">
     <div class="container">
       <div class="content-area">
@@ -75,6 +76,15 @@
             :style="{ animationDelay: `${index * 100}ms` }"
             @mouseenter="hoveredCard = image.platform"
             @mouseleave="hoveredCard = null"
+=======
+  <div class="social-previews">
+    <div class="max-w-7xl mx-auto">
+      <!-- Error Message -->
+      <div v-if="error" class="mb-16 p-8 bg-gradient-to-r from-red-50 to-pink-50 border border-red-200/60 rounded-3xl shadow-lg">
+        <div class="flex items-start gap-5">
+          <div
+            class="w-16 h-16 bg-gradient-to-br from-red-100 to-pink-100 rounded-2xl flex items-center justify-center flex-shrink-0 shadow-lg"
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
           >
             <div class="card-wrapper">
               <div class="card-glow" :style="{ backgroundColor: image.color || '#10b981' }"></div>
@@ -222,7 +232,11 @@
         <div class="modal-content" @click.stop>
           <button class="close-btn" @click="closePreview">
             <svg
+<<<<<<< HEAD
               class="close-icon"
+=======
+              class="w-8 h-8 text-red-600"
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
               fill="none"
               stroke="currentColor"
               stroke-width="2"
@@ -245,6 +259,7 @@
               <p>Loading preview...</p>
             </div>
           </div>
+<<<<<<< HEAD
 
           <div v-if="previewModal.currentImage" class="preview-info">
             <div class="info-header">
@@ -265,6 +280,13 @@
               :style="{
                 background: `linear-gradient(135deg, ${previewModal.currentImage.color || '#10b981'} 0%, ${previewModal.currentImage.hoverColor || '#059669'} 100%)`,
               }"
+=======
+          <div>
+            <h3 class="text-xl font-bold text-red-900 mb-2">Processing Error</h3>
+            <p class="text-red-700 text-base font-medium">{{ error }}</p>
+            <button
+              class="mt-4 px-6 py-3 bg-gradient-to-r from-red-600 to-pink-600 hover:from-red-700 hover:to-pink-700 text-white font-semibold rounded-xl shadow-lg transition-all duration-300 hover:shadow-xl"
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
             >
               <div
                 v-if="downloadingItem === previewModal.currentImage.platform"
@@ -295,7 +317,202 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </Teleport>
+=======
+
+      <!-- Header Section -->
+      <div v-if="images.length" class="text-center mb-16">
+        <div
+          class="inline-flex items-center gap-2 mb-6 px-5 py-3 bg-gradient-to-r from-violet-100 to-purple-100 text-violet-700 rounded-full text-sm font-semibold border border-violet-200/50 shadow-sm"
+        >
+          <span
+            class="w-7 h-7 bg-gradient-to-br from-violet-600 to-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold shadow-lg"
+            >2</span
+          >
+          Download Results
+        </div>
+
+        <h2 class="text-4xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Your Cropped Images</h2>
+
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-10 font-medium leading-relaxed">
+          {{ images.length }} perfectly cropped images ready for download. Each optimized for its
+          specific platform.
+        </p>
+
+        <!-- Download All Button -->
+        <button
+          @click="downloadAll"
+          :disabled="downloadingAll"
+          class="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-violet-600 to-purple-600 hover:from-violet-700 hover:to-purple-700 text-white font-bold rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-lg hover:scale-105"
+        >
+          <div
+            v-if="downloadingAll"
+            class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"
+          ></div>
+          <svg
+            v-else
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+            />
+          </svg>
+          {{ downloadingAll ? 'Downloading All...' : 'Download All Images' }}
+        </button>
+      </div>
+
+      <!-- Images Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div
+          v-for="(image, index) in images"
+          :key="image.platform"
+          class="image-card group"
+          :style="{ animationDelay: `${index * 100}ms` }"
+        >
+          <!-- Card -->
+          <div
+            class="bg-white/90 backdrop-blur-sm rounded-3xl shadow-lg border border-gray-200/60 overflow-hidden hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 hover:border-violet-200"
+          >
+            <!-- Image container -->
+            <div
+              class="relative overflow-hidden"
+              :class="getImageAspectRatioClass(image.aspectRatio)"
+            >
+              <img
+                :src="image.url"
+                :alt="`${image.platform} preview`"
+                class="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+                @load="onImageLoad"
+              />
+
+              <!-- Overlay -->
+              <div
+                class="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-500"
+              ></div>
+
+              <!-- Platform badge -->
+              <div
+                class="absolute top-4 left-4 px-3 py-2 bg-white/95 backdrop-blur-md rounded-xl text-xs font-bold text-gray-800 shadow-lg border border-gray-200/50"
+              >
+                {{ getPlatformName(image.platform) }}
+              </div>
+
+              <!-- Dimensions badge -->
+              <div
+                class="absolute top-4 right-4 px-3 py-2 bg-black/80 backdrop-blur-md rounded-xl text-xs font-bold text-white shadow-lg"
+              >
+                {{ image.aspectRatio }}
+              </div>
+
+              <!-- Preview overlay -->
+              <div
+                class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500"
+              >
+                <div class="bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-2xl border border-gray-200/50 group-hover:scale-110 transition-transform duration-300">
+                  <svg
+                    class="w-8 h-8 text-gray-700"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="p-6">
+              <div class="text-center mb-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">
+                  {{ getPlatformName(image.platform) }}
+                </h3>
+                <p class="text-sm text-gray-600 font-medium">
+                  {{ getFormatDescription(image.platform) }}
+                </p>
+              </div>
+
+              <!-- Download button -->
+              <button
+                @click="downloadImage(image.url, image.platform)"
+                :disabled="downloadingItem === image.platform"
+                class="w-full px-5 py-3 rounded-2xl font-bold text-white transition-all duration-300 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed hover:scale-105"
+                :style="{
+                  background: `linear-gradient(135deg, ${image.color} 0%, ${image.hoverColor} 100%)`,
+                }"
+              >
+                <div class="flex items-center justify-center gap-3">
+                  <div
+                    v-if="downloadingItem === image.platform"
+                    class="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"
+                  ></div>
+                  <svg
+                    v-else
+                    class="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                    />
+                  </svg>
+                  <span class="text-base">
+                    {{ downloadingItem === image.platform ? 'Downloading...' : 'Download' }}
+                  </span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Empty state -->
+      <div v-if="images.length === 0 && !error" class="text-center py-20">
+        <div
+          class="w-32 h-32 bg-gradient-to-br from-gray-100 to-gray-50 rounded-3xl flex items-center justify-center mx-auto mb-8 shadow-lg border border-gray-200/50"
+        >
+          <svg
+            class="w-16 h-16 text-gray-400"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+        </div>
+        <h3 class="text-2xl font-bold text-gray-900 mb-3">Ready to Process</h3>
+        <p class="text-lg text-gray-600 max-w-lg mx-auto font-medium">
+          Upload an image above to see your perfectly cropped versions appear here
+        </p>
+      </div>
+    </div>
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
   </div>
 </template>
 
@@ -509,6 +726,7 @@ const onImageLoad = (event: Event, index: number) => {
 </script>
 
 <style scoped>
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 /* All existing styles remain the same... */
@@ -520,6 +738,11 @@ const onImageLoad = (event: Event, index: number) => {
   position: relative;
   overflow-x: hidden;
   padding: 2rem 1rem;
+=======
+.image-card {
+  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 }
 
 .page-wrapper::before {
@@ -834,6 +1057,7 @@ const onImageLoad = (event: Event, index: number) => {
   border: 1px solid rgba(255, 255, 255, 0.1);
   animation: fadeInUp 0.6s ease forwards;
   opacity: 0;
+<<<<<<< HEAD
 }
 
 @keyframes fadeInUp {
@@ -1443,5 +1667,8 @@ const onImageLoad = (event: Event, index: number) => {
     align-items: flex-start;
     gap: 1rem;
   }
+=======
+  transition: opacity 0.5s ease-in-out;
+>>>>>>> 0b447cc847fc37852b3255d226b6374b85f98d34
 }
 </style>
