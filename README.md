@@ -2,6 +2,8 @@
 
 A modern Vue 3 application that allows users to upload images, generate social media-specific previews with smart cropping, and download optimized formats—all with a responsive and elegant UI.
 
+Demo: https://image-croper-test.vercel.app/
+
 ## 🚀 Tech Stack
 
 - **Framework**: Vue 3 + Composition API
