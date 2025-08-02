@@ -1,3 +1,4 @@
+// ./composables/useImageProcessor.ts
 import { ref, computed } from 'vue'
 import rawData from '@/assets/sizes.json'
 
@@ -54,9 +55,7 @@ export const useImageProcessor = () => {
   const uploadedImage = ref<UploadedImage | null>(null)
   const isLoading = ref(false)
   const error = ref<string | null>(null)
-  const uploadProgress = ref(0)
-
-  const UPLOADCARE_PUBLIC_KEY = 'demopublickey'
+  const uploadProgress = ref(0) // No longer used for simulation, but can be for real-time updates
 
   const configs: SocialMediaConfig[] = rawApps.flatMap((app) => {
     const colors = colorMap[app.app] || { color: '#000', hoverColor: '#333' }
@@ -73,7 +72,7 @@ export const useImageProcessor = () => {
   const downloadImage = (url: string, platform: string) => {
     const link = document.createElement('a')
     link.href = url
-    link.download = `cropmaster-${platform.toLowerCase().replace(/\s/g, '-')}.jpg`
+    link.download = `smart-crop-${platform.toLowerCase().replace(/\s/g, '-')}.jpg`
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
@@ -87,12 +86,34 @@ export const useImageProcessor = () => {
     })
   }
 
+  const handleFileUpload = (cdnUrl: string) => {
+    // We just need to extract the UUID and store it to generate URLs.
+    error.value = null
+    isLoading.value = false // We can set this to false immediately
+
+    const uuid = cdnUrl.split('/').filter(Boolean).pop() || ''
+
+    if (!uuid) {
+      error.value = 'Failed to get a valid UUID from the Uploadcare URL.'
+      return
+    }
+
+    // Store the uploaded image info
+    uploadedImage.value = {
+      uuid,
+      originalUrl: cdnUrl,
+      isReady: true,
+      fileName: 'uploaded_image', // Or extract from cdnUrl
+    }
+
+    console.log('✅ Processing complete. UUID:', uuid)
+  }
+
   return {
     uploadedImage,
     isLoading,
     uploadProgress,
     error,
-    UPLOADCARE_PUBLIC_KEY,
     processedImages: computed(() => {
       if (!uploadedImage.value) return []
       const uuid = uploadedImage.value.uuid
@@ -107,31 +128,7 @@ export const useImageProcessor = () => {
         }
       })
     }),
-    handleFileUpload: (cdnUrl: string) => {
-      isLoading.value = true
-      error.value = null
-      uploadProgress.value = 0
-
-      const uuid = cdnUrl.split('/').filter(Boolean).pop() || ''
-
-      let progress = 0
-      const interval = setInterval(() => {
-        progress += 10
-        if (progress <= 100) {
-          uploadProgress.value = progress
-        } else {
-          clearInterval(interval)
-          uploadedImage.value = {
-            uuid,
-            originalUrl: cdnUrl,
-            isReady: true,
-            fileName: 'uploaded_image',
-          }
-          isLoading.value = false
-          uploadProgress.value = 0
-        }
-      }, 100)
-    },
+    handleFileUpload,
     downloadImage,
     downloadAll,
   }
