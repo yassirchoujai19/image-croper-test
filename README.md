@@ -102,8 +102,6 @@ Support for video formats
 🧭 Architectural Decisions
 Why Uploadcare? Rapid integration with smart crop, CDN delivery, and file optimizations built-in.
 
-Why SCSS? Custom properties + SCSS variables enabled theme flexibility and dynamic styling.
-
 Why Composition API? Clean separation of concerns and reusable logic via composables like useImageProcessor.
 
 💬 Final Thoughts
